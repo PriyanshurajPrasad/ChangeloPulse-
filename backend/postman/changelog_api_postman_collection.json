@@ -1,0 +1,332 @@
+{
+  "info": {
+    "_postman_id": "c8a9f0e1-4b21-4d3e-9f12-changelog-api",
+    "name": "Changelog & Product Updates API",
+    "description": "Complete Postman collection for testing the Changelog & Product Updates Widget REST API.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health",
+      "item": [
+        {
+          "name": "Health Check",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/health",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "health"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Login Admin",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"admin@example.com\",\n  \"password\": \"Admin@12345\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/login",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "login"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login Normal User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"user@example.com\",\n  \"password\": \"User@12345\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/login",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "login"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Register User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Test Developer\",\n  \"email\": \"testdev@example.com\",\n  \"password\": \"Test@12345\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/register",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "register"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Authenticated User (Me)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{adminToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/me",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "me"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Logout",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{adminToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/logout",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "logout"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Changelog (Public)",
+      "item": [
+        {
+          "name": "Get Public Changelog",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/changelog?page=1&limit=10",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "changelog"],
+              "query": [
+                { "key": "page", "value": "1" },
+                { "key": "limit", "value": "10" }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Public Changelog Filtered by Category",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/changelog?category=feature",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "changelog"],
+              "query": [
+                { "key": "category", "value": "feature" }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Search Public Changelog",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/changelog?search=dark",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "changelog"],
+              "query": [
+                { "key": "search", "value": "dark" }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Widget API (Public)",
+      "item": [
+        {
+          "name": "Get Latest Widget Updates",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/widget/updates?limit=5",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "widget", "updates"],
+              "query": [
+                { "key": "limit", "value": "5" }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Updates CRUD (Admin)",
+      "item": [
+        {
+          "name": "Get All Updates (Admin View All Statuses)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{adminToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/updates?page=1&limit=10",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "updates"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Update (Admin)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{adminToken}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Custom Webhooks API Released\",\n  \"description\": \"Subscribing to real-time events is now easier with custom endpoint webhooks.\",\n  \"content\": \"Full markdown content for Webhooks release...\",\n  \"category\": \"feature\",\n  \"version\": \"v2.4.0\",\n  \"status\": \"draft\",\n  \"tags\": [\"webhooks\", \"api\", \"events\"]\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/updates",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "updates"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Publish Update (Admin)",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{adminToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/updates/:id/publish",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "updates", ":id", "publish"],
+              "variable": [
+                { "key": "id", "value": "REPLACE_WITH_UPDATE_ID" }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Archive Update (Admin)",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{adminToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/updates/:id/archive",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "updates", ":id", "archive"],
+              "variable": [
+                { "key": "id", "value": "REPLACE_WITH_UPDATE_ID" }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Update (Admin)",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{adminToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/updates/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "updates", ":id"],
+              "variable": [
+                { "key": "id", "value": "REPLACE_WITH_UPDATE_ID" }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5000"
+    },
+    {
+      "key": "adminToken",
+      "value": ""
+    }
+  ]
+}

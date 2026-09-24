@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 340" width="100%" height="100%">
+  <defs>
+    <!-- Dark Navy Background Gradient -->
+    <linearGradient id="bgGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B132B" />
+      <stop offset="100%" stop-color="#060C1E" />
+    </linearGradient>
+
+    <!-- Electric Purple Waveform Gradient -->
+    <linearGradient id="pulseGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#9333EA" />
+      <stop offset="50%" stop-color="#A855F7" />
+      <stop offset="100%" stop-color="#7E22CE" />
+    </linearGradient>
+
+    <!-- Subtle Gear Lavender Fill -->
+    <linearGradient id="gearGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#D8CEF6" />
+    </linearGradient>
+
+    <!-- Drop Shadow for Pulse -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000000" flood-opacity="0.5" />
+    </filter>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="300" height="340" rx="36" fill="url(#bgGrad2)" />
+
+  <!-- Outer White Circle Ring -->
+  <circle cx="150" cy="135" r="92" fill="#0A1329" stroke="#FFFFFF" stroke-width="6" />
+
+  <!-- Center Gear / Cogwheel -->
+  <g fill="url(#gearGrad)" transform="translate(150, 135)">
+    <!-- 8 Gear Teeth -->
+    <rect x="-14" y="-72" width="28" height="144" rx="4" />
+    <rect x="-14" y="-72" width="28" height="144" rx="4" transform="rotate(45)" />
+    <rect x="-14" y="-72" width="28" height="144" rx="4" transform="rotate(90)" />
+    <rect x="-14" y="-72" width="28" height="144" rx="4" transform="rotate(135)" />
+    
+    <!-- Outer Gear Body Circle -->
+    <circle cx="0" cy="0" r="62" />
+    
+    <!-- Inner Cutout Circle (Navy) -->
+    <circle cx="0" cy="0" r="42" fill="#0A1329" />
+    
+    <!-- Center Pin -->
+    <circle cx="0" cy="0" r="10" fill="#0A1329" stroke="url(#gearGrad)" stroke-width="3" />
+  </g>
+
+  <!-- Sharp Electric Purple Pulse / Heartbeat Waveform -->
+  <g filter="url(#shadow)">
+    <!-- Pulse Polygon Shape matching Image 2 -->
+    <path d="M 40 135 
+             L 100 135 
+             L 115 110 
+             L 130 150 
+             L 148 25 
+             L 162 210 
+             L 178 95 
+             L 192 145 
+             L 205 135 
+             L 260 135 
+             L 248 143 
+             L 202 143 
+             L 186 160 
+             L 176 110 
+             L 162 235 
+             L 146 50 
+             L 132 165 
+             L 116 125 
+             L 98 143 
+             L 40 143 
+             Z" 
+          fill="url(#pulseGrad)" 
+          stroke="#581C87" 
+          stroke-width="1.5" />
+  </g>
+
+  <!-- Brand Typography: CHANGELOGPULSE -->
+  <g text-anchor="middle" font-family="'Plus Jakarta Sans', 'Inter', system-ui, sans-serif" font-weight="900">
+    <text x="150" y="282" font-size="25" letter-spacing="2">
+      <tspan fill="#FFFFFF">CHANGELOG</tspan><tspan fill="#9333EA">PULSE</tspan>
+    </text>
+  </g>
+</svg>
